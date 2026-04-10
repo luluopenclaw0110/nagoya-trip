@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美饌探索 | 古城新韻・名古屋</title>
+  <meta name="description" content="探索名古屋四大必吃美食：蓬萊軒鰻魚飯三吃、矢場味噌豬排、山本屋味噌煮烏龍、山本屋味噌煮烏龍麵。完整美食攻略。">
+  <meta name="theme-color" content="#C8102E">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23C8102E'/><text y='.9em' font-size='80' x='50%' text-anchor='middle'>城</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ===================== RESTAURANT HERO ===================== */
+    .r-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 420px;
+      max-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--secondary);
+    }
+
+    .r-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .r-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+
+    .r-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(26, 26, 46, 0.85) 0%,
+        rgba(200, 16, 46, 0.35) 100%
+      );
+      z-index: 1;
+    }
+
+    .r-hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--text-light);
+      padding: 0 20px;
+    }
+
+    .r-hero__eyebrow {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeInUp 0.8s 0.2s forwards;
+    }
+
+    .r-hero__eyebrow::before,
+    .r-hero__eyebrow::after {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .r-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeInUp 0.8s 0.4s forwards;
+    }
+
+    .r-hero__subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeInUp 0.8s 0.6s forwards;
+    }
+
+    /* ===================== RESTAURANT INTRO ===================== */
+    .r-intro {
+      background: var(--bg-cream);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .r-intro .section__header {
+      margin-bottom: 0;
+    }
+
+    .r-intro .section__desc {
+      margin-top: 16px;
+    }
+
+    .r-intro-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .r-intro-stat {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 32px 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .r-intro-stat:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .r-intro-stat__icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .r-intro-stat__num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .r-intro-stat__label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===================== RESTAURANT CARDS GRID ===================== */
+    .r-grid {
+      padding: 96px 0;
+      background: var(--bg-white);
+    }
+
+    .r-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--bg-white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 64px;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .r-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .r-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-4px);
+    }
+
+    /* Alternate layout: odd cards image on right */
+    .r-card:nth-child(even) {
+      direction: rtl;
+    }
+
+    .r-card:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .r-card__image {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .r-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .r-card:hover .r-card__image img {
+      transform: scale(1.05);
+    }
+
+    .r-card__num {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: var(--text-light);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(200, 16, 46, 0.4);
+      z-index: 2;
+    }
+
+    .r-card__gallery {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .r-card__gallery-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.7);
+      cursor: pointer;
+      opacity: 0.75;
+      transition: var(--transition-fast);
+    }
+
+    .r-card__gallery-thumb:hover {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+
+    .r-card__gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .r-card__body {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .r-card__tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 3px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .r-card__name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+
+    .r-card__name-jp {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .r-card__desc {
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: var(--text-body);
+      margin-bottom: 28px;
+    }
+
+    .r-card__highlight {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .r-card__highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .r-card__highlight-item::before {
+      content: '★';
+      color: var(--accent);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .r-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .r-card__location {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .r-card__btn {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .r-card__btn:hover {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    /* ===================== CTA SECTION ===================== */
+    .r-cta {
+      background: var(--secondary);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .r-cta h2 {
+      color: #fff;
+    }
+
+    .r-cta .section__desc {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .r-cta .divider {
+      margin: 0 auto 24px;
+    }
+
+    .r-cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .btn--accent {
+      background: var(--accent);
+      color: var(--secondary);
+      box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+    }
+
+    .btn--accent:hover {
+      background: var(--accent-light);
+      box-shadow: 0 8px 28px rgba(245, 166, 35, 0.5);
+      transform: translateY(-2px);
+      color: var(--secondary);
+    }
+
+    /* ===================== LIGHTBOX ===================== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      .r-card {
+        grid-template-columns: 1fr;
+      }
+
+      .r-card:nth-child(even) {
+        direction: ltr;
+      }
+
+      .r-card__image {
+        height: 320px;
+      }
+
+      .r-card__body {
+        padding: 36px;
+      }
+
+      .r-intro-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .r-hero {
+        height: 50vh;
+        min-height: 360px;
+      }
+
+      .r-intro {
+        padding: 64px 0;
+      }
+
+      .r-grid {
+        padding: 64px 0;
+      }
+
+      .r-card {
+        margin-bottom: 40px;
+      }
+
+      .r-card__image {
+        height: 260px;
+      }
+
+      .r-card__body {
+        padding: 28px;
+      }
+
+      .r-cta {
+        padding: 64px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .r-card__gallery {
+        display: none;
+      }
+
+      .r-card__footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">
+          <span class="header__logo-dot"></span>
+          古城新韻・名古屋
+        </a>
+
+        <nav class="header__nav" id="headerNav">
+          <a href="index.html" class="nav-link">首頁</a>
+          <a href="spots.html" class="nav-link">景點探索</a>
+          <a href="restaurants.html" class="nav-link active">美饌探索</a>
+          <a href="index.html#about-section" class="nav-link">關於名古屋</a>
+          <a href="index.html" class="nav-cta">回首頁</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== RESTAURANT HERO ===================== -->
+  <section class="r-hero">
+    <div class="r-hero__bg">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1920&q=80" alt="名古屋美食">
+    </div>
+    <div class="r-hero__overlay"></div>
+    <div class="r-hero__content">
+      <p class="r-hero__eyebrow">Nagoya Cuisine</p>
+      <h1 class="r-hero__title">美饌探索</h1>
+      <p class="r-hero__subtitle">
+        從百年老舖的鰻魚飯到街頭人氣味噌豬排——<br>
+        名古屋的靈魂，藏在每一道料理裡。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== INTRO STATS ===================== -->
+  <section class="r-intro">
+    <div class="container">
+      <div class="section__header fade-in">
+        <span class="section__tag">Nagoya Food</span>
+        <h2 class="section__title">名古屋美食圖鑑</h2>
+        <div class="divider"></div>
+        <p class="section__desc">
+          名古屋的美食文化深植於傳統，卻又不斷演化創新。<br>
+          四大經典美饌，每一道都是一段歷史，一種態度，一個非吃不可的理由。
+        </p>
+      </div>
+
+      <div class="r-intro-stats fade-in">
+        <div class="r-intro-stat">
+          <div class="r-intro-stat__icon">🍱</div>
+          <div class="r-intro-stat__num">1882</div>
+          <div class="r-intro-stat__label">蓬萊軒創業年份</div>
+        </div>
+        <div class="r-intro-stat">
+          <div class="r-intro-stat__icon">🥩</div>
+          <div class="r-intro-stat__num">90+</div>
+          <div class="r-intro-stat__label">矢場味噌豬排分店</div>
+        </div>
+        <div class="r-intro-stat">
+          <div class="r-intro-stat__icon">🍜</div>
+          <div class="r-intro-stat__num">100+</div>
+          <div class="r-intro-stat__label">山本屋歷史年數</div>
+        </div>
+        <div class="r-intro-stat">
+          <div class="r-intro-stat__icon">🏆</div>
+          <div class="r-intro-stat__num">8</div>
+          <div class="r-intro-stat__label">鳥開連續奪冠年數</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESTAURANT CARDS ===================== -->
+  <section class="r-grid" id="restaurants">
+    <div class="container">
+
+      <!-- Restaurant 1: 蓬莱轩 -->
+      <article class="r-card fade-in" id="houraiken">
+        <div class="r-card__image">
+          <img src="images/foods/food_01.jpg" alt="蓬萊軒鰻魚飯" loading="eager">
+          <span class="r-card__num">1</span>
+          <div class="r-card__gallery">
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_01.jpg')">
+              <img src="images/foods/food_01.jpg" alt="蓬萊軒">
+            </div>
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_02.jpg')">
+              <img src="images/foods/food_02.jpg" alt="蓬萊軒">
+            </div>
+          </div>
+        </div>
+        <div class="r-card__body">
+          <span class="r-card__tag">鰻魚飯三吃</span>
+          <h2 class="r-card__name">蓬萊軒（ひつまぶし）</h2>
+          <p class="r-card__name-jp">Houraiken — Since 1882</p>
+          <p class="r-card__desc">
+            1882年創業至今，蓬萊軒是名古屋「鰻魚飯三吃」的發源地，也是這座城市最具代表性的靈魂美食之一。招牌鰻魚飯三吃將整條肥美鰻魚慢烤至表皮微焦、肉質軟嫩，鋪在Q彈白米上——第一吃品嚐原味，感受蒲燒醬汁與鰻魚油脂的完美結合；第二吃拌入蔥花、海苔與芥末，層次瞬間立體；第三吃澆入柴魚高湯，化身優雅的茶泡飯。三種吃法從浓郁到清爽、從飽足到輕盈，是一場有層次的味覺旅程，被譽為「一生必吃一次的鰻魚飯」。
+          </p>
+          <div class="r-card__highlight">
+            <div class="r-card__highlight-item">名古屋鰻魚飯三吃發源地</div>
+            <div class="r-card__highlight-item">創業超過140年的歷史名店</div>
+            <div class="r-card__highlight-item">「一生必吃一次的鰻魚飯」美譽</div>
+          </div>
+          <div class="r-card__footer">
+            <span class="r-card__location">📍 名古屋近郊（建議提前預約）</span>
+            <a href="#restaurants" class="r-card__btn">鰻魚飯愛好者首選 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Restaurant 2: 矢場味噌猪排 -->
+      <article class="r-card fade-in" id="yabaton">
+        <div class="r-card__image">
+          <img src="images/foods/food_03.jpg" alt="矢場味噌豬排" loading="lazy">
+          <span class="r-card__num">2</span>
+          <div class="r-card__gallery">
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_03.jpg')">
+              <img src="images/foods/food_03.jpg" alt="矢場味噌豬排">
+            </div>
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_04.jpg')">
+              <img src="images/foods/food_04.jpg" alt="矢場味噌豬排">
+            </div>
+          </div>
+        </div>
+        <div class="r-card__body">
+          <span class="r-card__tag">味噌豬排</span>
+          <h2 class="r-card__name">矢場味噌豬排（矢場とん）</h2>
+          <p class="r-card__name-jp">Yabaton — Miso Katsu Specialist</p>
+          <p class="r-card__desc">
+            走進矢場味噌豬排，首先迎接你的是門口那隻可愛到犯規的粉色豬公吉祥物——但真正的主角在碗裡。碩大的「草鞋豬排」豪邁上桌，以大片豬腰內肉裹上薄粉炸至金黃酥脆，再淋上以赤味噌為基底的獨家濃郁醬汁。赤味噌的鹹甜滋味與酥炸麵衣在口中交織，豬肉的甜味被味噌完全引出，超級下飯，讓人忍不住一口接一口。這道料理是名古屋B級美食的代表，經濟實惠又充滿地方風情，在名古屋車站內的店鋪交通便利，是旅途中補充能量的最佳選擇。
+          </p>
+          <div class="r-card__highlight">
+            <div class="r-card__highlight-item">名古屋B級美食代表</div>
+            <div class="r-card__highlight-item">可愛粉色豬公吉祥物迎賓</div>
+            <div class="r-card__highlight-item">名古屋車站內設有分店，交通便利</div>
+          </div>
+          <div class="r-card__footer">
+            <span class="r-card__location">📍 名古屋車站內（多家分店）</span>
+            <a href="#restaurants" class="r-card__btn">經濟實惠補充能量 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Restaurant 3: 山本屋总本家 -->
+      <article class="r-card fade-in" id="yamamoto">
+        <div class="r-card__image">
+          <img src="images/foods/food_05.jpg" alt="山本屋味噌煮烏龍麵" loading="lazy">
+          <span class="r-card__num">3</span>
+          <div class="r-card__gallery">
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_05.jpg')">
+              <img src="images/foods/food_05.jpg" alt="山本屋">
+            </div>
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_06.jpg')">
+              <img src="images/foods/food_06.jpg" alt="山本屋">
+            </div>
+          </div>
+        </div>
+        <div class="r-card__body">
+          <span class="r-card__tag">味噌煮烏龍麵</span>
+          <h2 class="r-card__name">山本屋总本家</h2>
+          <p class="r-card__name-jp">Yamamoto-ya Souhonke — Since the Meiji Era</p>
+          <p class="r-card__desc">
+            創業超過百年的山本屋总本家，是名古屋味噌煮烏龍麵的代表性老鋪。一碗看似樸實的味噌煮烏龍麵，背後藏著職人對傳統的執著——湯底以八丁味噌與柴魚高湯慢火熬煮數小時，濃郁中帶有層次，鹹香而不膩；自家製烏龍麵保留了小麥的香氣與嚼勁，與湯底一同倒入陶鍋中現煮上桌，鍋蓋掀起的瞬間香氣撲鼻而來。寒冷的季節裡，特別是冬季時分，躲進暖呼呼的店內吃一碗，從胃暖到心，是最能體現名古屋庶民美食精神的經典選擇。
+          </p>
+          <div class="r-card__highlight">
+            <div class="r-card__highlight-item">創業超過百年的味噌煮烏龍麵老舖</div>
+            <div class="r-card__highlight-item">八丁味噌與柴魚高湯慢火熬煮數小時</div>
+            <div class="r-card__highlight-item">陶鍋現煮，冬日暖胃最佳選擇</div>
+          </div>
+          <div class="r-card__footer">
+            <span class="r-card__location">📍 名古屋市中心（多家分店）</span>
+            <a href="#restaurants" class="r-card__btn">職人精神百年傳承 →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Restaurant 4: 鳥开总本家 -->
+      <article class="r-card fade-in" id="torikai">
+        <div class="r-card__image">
+          <img src="images/foods/food_07.jpg" alt="鳥开总本家" loading="lazy">
+          <span class="r-card__num">4</span>
+          <div class="r-card__gallery">
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_07.jpg')">
+              <img src="images/foods/food_07.jpg" alt="鳥开">
+            </div>
+            <div class="r-card__gallery-thumb" onclick="openLightbox('images/foods/food_08.jpg')">
+              <img src="images/foods/food_08.jpg" alt="鳥开">
+            </div>
+          </div>
+        </div>
+        <div class="r-card__body">
+          <span class="r-card__tag">名古屋交趾雞</span>
+          <h2 class="r-card__name">鳥开总本家</h2>
+          <p class="r-card__name-jp">Torikai Souhonke — Nagoya Cochin Expert</p>
+          <p class="r-card__desc">
+            使用愛知縣在地品種「名古屋交趾雞」與「三河赤雞」製作料理的鳥开，是東京奧運官方選手村食堂的食材供應商，也是名古屋交趾雞料理的專家。招牌「親子丼」連續8年獲得全國丼飯大賽金獎——滑順嫩口的半熟蛋黃覆蓋在富有彈性的雞肉上，與粒粒分明的米飯拌勻入口，層次豐富得令人驚艷。另一道人氣料理「名古屋交趾雞炸雞翅」同樣獲得炸雞大獎金獎，外皮酥脆、雞肉多汁，一口咬下就能感受職人的講究。餐廳位於名古屋車站地下街Esca內，交通便利，是旅途中不可錯過的美食驛站。
+          </p>
+          <div class="r-card__highlight">
+            <div class="r-card__highlight-item">東京奧運選手村食堂食材供應商</div>
+            <div class="r-card__highlight-item">親子丼連續8年全國丼飯大賽金獎</div>
+            <div class="r-card__highlight-item">位於名古屋車站地下街Esca，交通便利</div>
+          </div>
+          <div class="r-card__footer">
+            <span class="r-card__location">📍 名古屋車站地下街Esca</span>
+            <a href="#restaurants" class="r-card__btn">名古屋交趾雞專家 →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== CTA SECTION ===================== -->
+  <section class="r-cta">
+    <div class="container--narrow">
+      <div class="fade-in">
+        <span class="section__tag" style="color: var(--accent); border-color: var(--accent);">Let's Eat</span>
+        <h2 class="section__title" style="color: #fff; margin-top: 16px; margin-bottom: 20px;">
+          用美食認識一座城市
+        </h2>
+        <div class="divider"></div>
+        <p class="section__desc" style="margin-top: 16px;">
+          名古屋的美味，不只是填飽肚子——<br>
+          每一道料理背後，都有一段故事，等待你親自品嚐。
+        </p>
+        <div class="r-cta-btns">
+          <a href="spots.html" class="btn btn--accent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            探索景點
+          </a>
+          <a href="index.html" class="btn btn--outline">
+            返回首頁
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">
+            <span class="dot"></span>
+            古城新韻・名古屋
+          </div>
+          <p class="footer__brand-desc">
+            探索名古屋古老城堡與未來都市的交匯點。
+            從德川時代的權力象徵到水與光的漂浮花園，
+            這裡記錄著名古屋最動人的故事。
+          </p>
+        </div>
+        <div>
+          <div class="footer__col-title">快速連結</div>
+          <div class="footer__links">
+            <a href="index.html">首頁</a>
+            <a href="spots.html">景點探索</a>
+            <a href="restaurants.html">美饌探索</a>
+            <a href="index.html#about-section">關於名古屋</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">美食圖鑑</div>
+          <div class="footer__links">
+            <a href="restaurants.html#houraiken">蓬萊軒 鰻魚飯三吃</a>
+            <a href="restaurants.html#yabaton">矢場味噌豬排</a>
+            <a href="restaurants.html#yamamoto">山本屋总本家</a>
+            <a href="restaurants.html#torikai">鳥开总本家</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 古城新韻・名古屋 <span class="footer__accent">|</span> 名古屋旅遊導覽</span>
+        <span>設計 by 網頁設計工程師</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="關閉">✕</button>
+    <img src="" alt="放大圖片" id="lightbox-img">
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Lightbox
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

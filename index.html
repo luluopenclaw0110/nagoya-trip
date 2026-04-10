@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>古城新韻・名古屋 | 名古屋旅遊官方網站</title>
+  <meta name="description" content="探索名古屋的古老城堡與未來都市風采。名古屋城、熱田神宮、綠洲21等熱門景點，完整旅遊攻略。">
+  <meta name="theme-color" content="#C8102E">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23C8102E'/><text y='.9em' font-size='80' x='50%' text-anchor='middle'>城</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">
+          <span class="header__logo-dot"></span>
+          古城新韻・名古屋
+        </a>
+
+        <nav class="header__nav" id="headerNav">
+          <a href="index.html" class="nav-link active">首頁</a>
+          <a href="spots.html" class="nav-link">景點探索</a>
+          <a href="restaurants.html" class="nav-link">美饌探索</a>
+          <a href="#about-section" class="nav-link">關於名古屋</a>
+          <a href="spots.html" class="nav-cta">開始探索</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1920&q=80"
+           alt="名古屋城市景觀"
+           loading="eager">
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Nagoya, Japan</p>
+      <h1 class="hero__title">古城新韻・名古屋</h1>
+      <p class="hero__subtitle">
+        古老城堡與未來都市在此相遇。<br>
+        走進名古屋，遇見日本的心跳。
+      </p>
+      <div class="hero__actions">
+        <a href="spots.html" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          探索景點
+        </a>
+        <a href="#spots-section" class="btn btn--outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          精選介紹
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT / INTRO ===================== -->
+  <section class="section section--cream" id="about-section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <span class="section__tag">About Nagoya</span>
+        <h2 class="section__title">名古屋，日本的心臟</h2>
+        <div class="divider" style="margin-bottom: 20px;"></div>
+        <p class="section__desc">
+          名古屋位於東京與京都之間，是日本中部最大的都市。這裡有400年歷史的古城、千年神社，
+          也有最前衛的建築與科技。傳統與創新在這裡和諧共存。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; margin-top: 48px;"
+           class="fade-in stats-grid">
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 900; color: var(--primary);">400+</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em;">年古城歷史</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 900; color: var(--primary);">1900+</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em;">年神宮传承</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 900; color: var(--primary);">5</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em;">大精選景點</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 900; color: var(--primary);">300萬+</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em;">年訪人次</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPOTS GRID ===================== -->
+  <section class="section" id="spots-section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <span class="section__tag">Spotlight</span>
+        <h2 class="section__title">探索名古屋</h2>
+        <div class="divider" style="margin-bottom: 20px;"></div>
+        <p class="section__desc">
+          從雄偉的古城到寧靜的神宮，從未來感的玻璃建築到海洋深處的奇幻世界——<br>
+          名古屋的每一處風景，都在訴說不同的故事。
+        </p>
+      </div>
+
+      <div class="spots-grid">
+        <!-- Featured: 名古屋城 -->
+        <a href="spots.html#nagoya-castle" class="spot-card spot-card--featured fade-in">
+          <div class="spot-card__image">
+            <img src="images/spots/spot_01a_nagoya_castle_aerial.jpg" alt="名古屋城" loading="lazy">
+            <span class="spot-card__badge">Featured</span>
+          </div>
+          <div class="spot-card__content">
+            <div class="spot-card__icon">🏯</div>
+            <h3 class="spot-card__title">名古屋城</h3>
+            <p class="spot-card__desc">
+              德川家康親自下令建造的權力象徵，與大阪城、熊本城並列日本三大名城。
+              金色鯱魚佇立屋脊，春季櫻花環繞護城河，歷史的重量在此凝結，卻也煥發新生。
+            </p>
+            <div class="spot-card__footer">
+              <span class="spot-card__tag">歷史古蹟</span>
+              <div class="spot-card__arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 熱田神宮 -->
+        <a href="spots.html#atsuta-jingu" class="spot-card fade-in">
+          <div class="spot-card__image">
+            <img src="images/spots/spot_02_atsuta_jingu.jpg" alt="熱田神宮" loading="lazy">
+            <span class="spot-card__badge">神社</span>
+          </div>
+          <div class="spot-card__content">
+            <div class="spot-card__icon">⛩️</div>
+            <h3 class="spot-card__title">熱田神宮</h3>
+            <p class="spot-card__desc">
+              逾1900年歷史的日本最古老神宮之一，供奉傳說中的草雉劍，
+              境內古木參天，莊嚴肅穆的氛圍令人不自覺放慢腳步。
+            </p>
+            <div class="spot-card__footer">
+              <span class="spot-card__tag">文化神社</span>
+              <div class="spot-card__arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 綠洲21 -->
+        <a href="spots.html#oasis21" class="spot-card fade-in">
+          <div class="spot-card__image">
+            <img src="images/spots/spot_04b_oasis21_roof.jpg" alt="綠洲21" loading="lazy">
+            <span class="spot-card__badge">現代地標</span>
+          </div>
+          <div class="spot-card__content">
+            <div class="spot-card__icon">🌊</div>
+            <h3 class="spot-card__title">綠洲21</h3>
+            <p class="spot-card__desc">
+              「水與光的漂浮花園」——橢圓形玻璃屋頂佇立半空，
+              夜間夢幻燈光秀宛如銀河降臨人間，是名古屋夜生活的首選之地。
+            </p>
+            <div class="spot-card__footer">
+              <span class="spot-card__tag">夜景地標</span>
+              <div class="spot-card__arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 名古屋港水族館 -->
+        <a href="spots.html#aquarium" class="spot-card fade-in">
+          <div class="spot-card__image">
+            <img src="images/spots/spot_08_nagoya_aquarium_dolphin.jpg" alt="名古屋港水族館" loading="lazy">
+            <span class="spot-card__badge">水族館</span>
+          </div>
+          <div class="spot-card__content">
+            <div class="spot-card__icon">🐬</div>
+            <h3 class="spot-card__title">名古屋港水族館</h3>
+            <p class="spot-card__desc">
+              日本規模最大的水族館之一，從35億年海洋演化到南極探險，
+              壓軸海豚表演跳躍旋轉，親子同遊的最佳去處。
+            </p>
+            <div class="spot-card__footer">
+              <span class="spot-card__tag">親子景點</span>
+              <div class="spot-card__arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- 大須觀音寺 -->
+        <a href="spots.html#osu-kannon" class="spot-card fade-in">
+          <div class="spot-card__image">
+            <img src="images/spots/spot_06_osu_kannon.jpg" alt="大須觀音寺" loading="lazy">
+            <span class="spot-card__badge">寺院</span>
+          </div>
+          <div class="spot-card__content">
+            <div class="spot-card__icon">🏮</div>
+            <h3 class="spot-card__title">大須觀音寺</h3>
+            <p class="spot-card__desc">
+              創建於1333年的古剎，供奉日本三大觀音之一。
+              新年參拜30萬人，寺外1200家商店雲集，是香火與街頭時尚交匯的神奇之地。
+            </p>
+            <div class="spot-card__footer">
+              <span class="spot-card__tag">歷史寺院</span>
+              <div class="spot-card__arrow">→</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESTAURANT TEASER ===================== -->
+  <section class="section" id="food-section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <span class="section__tag">Nagoya Cuisine</span>
+        <h2 class="section__title">名古屋美饌圖鑑</h2>
+        <div class="divider" style="margin-bottom: 20px;"></div>
+        <p class="section__desc">
+          從百年老舖的鰻魚飯到街頭人氣味噌豬排——<br>
+          名古屋的靈魂，藏在每一道料理裡。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;" class="fade-in food-preview-grid">
+        <a href="restaurants.html#houraiken" class="food-preview-card">
+          <div class="food-preview-card__image">
+            <img src="images/foods/food_01.jpg" alt="蓬萊軒" loading="lazy">
+          </div>
+          <div class="food-preview-card__body">
+            <span class="food-preview-card__tag">🍱 鰻魚飯三吃</span>
+            <h3 class="food-preview-card__title">蓬萊軒</h3>
+            <p class="food-preview-card__desc">1882年創業，名古屋鰻魚飯三吃發源地，被譽為「一生必吃一次的鰻魚飯」。</p>
+            <div class="food-preview-card__link">探索美食 →</div>
+          </div>
+        </a>
+        <a href="restaurants.html#yabaton" class="food-preview-card">
+          <div class="food-preview-card__image">
+            <img src="images/foods/food_03.jpg" alt="矢場味噌豬排" loading="lazy">
+          </div>
+          <div class="food-preview-card__body">
+            <span class="food-preview-card__tag">🥩 味噌豬排</span>
+            <h3 class="food-preview-card__title">矢場味噌豬排</h3>
+            <p class="food-preview-card__desc">碩大草鞋豬排豪邁上桌，經濟實惠又充滿地方風情的B級美食代表。</p>
+            <div class="food-preview-card__link">探索美食 →</div>
+          </div>
+        </a>
+        <a href="restaurants.html#yamamoto" class="food-preview-card">
+          <div class="food-preview-card__image">
+            <img src="images/foods/food_05.jpg" alt="山本屋总本家" loading="lazy">
+          </div>
+          <div class="food-preview-card__body">
+            <span class="food-preview-card__tag">🍜 味噌煮烏龍</span>
+            <h3 class="food-preview-card__title">山本屋总本家</h3>
+            <p class="food-preview-card__desc">創業百年，陶鍋現煮，冬日裡從胃暖到心的庶民美食經典。</p>
+            <div class="food-preview-card__link">探索美食 →</div>
+          </div>
+        </a>
+        <a href="restaurants.html#torikai" class="food-preview-card">
+          <div class="food-preview-card__image">
+            <img src="images/foods/food_07.jpg" alt="鳥开总本家" loading="lazy">
+          </div>
+          <div class="food-preview-card__body">
+            <span class="food-preview-card__tag">🍗 名古屋交趾雞</span>
+            <h3 class="food-preview-card__title">鳥开总本家</h3>
+            <p class="food-preview-card__desc">東京奧運選手村食材供應商，親子丼連續8年全國金獎。</p>
+            <div class="food-preview-card__link">探索美食 →</div>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;" class="fade-in">
+        <a href="restaurants.html" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          完整美饌圖鑑
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA SECTION ===================== -->
+  <section class="section section--dark">
+    <div class="container--narrow" style="text-align: center;">
+      <div class="fade-in">
+        <span class="section__tag">Let's Go</span>
+        <h2 class="section__title" style="color: #fff; margin-top: 16px; margin-bottom: 20px;">
+          準備好探索名古屋了嗎？
+        </h2>
+        <div class="divider" style="margin-bottom: 24px;"></div>
+        <p class="section__desc" style="margin-bottom: 40px;">
+          從古城到未來，從神社到水族館——<br>
+          名古屋的每一處風景，都在等待你的足跡。
+        </p>
+        <a href="spots.html" class="btn btn--primary" style="font-size: 1rem; padding: 16px 40px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          開啟旅程
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">
+            <span class="dot"></span>
+            古城新韻・名古屋
+          </div>
+          <p class="footer__brand-desc">
+            探索名古屋古老城堡與未來都市的交匯點。
+            從德川時代的權力象徵到水與光的漂浮花園，
+            這裡記錄著名古屋最動人的故事。
+          </p>
+        </div>
+        <div>
+          <div class="footer__col-title">快速連結</div>
+          <div class="footer__links">
+            <a href="index.html">首頁</a>
+            <a href="spots.html">景點探索</a>
+            <a href="restaurants.html">美饌探索</a>
+            <a href="#about-section">關於名古屋</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">美饌圖鑑</div>
+          <div class="footer__links">
+            <a href="restaurants.html#houraiken">蓬萊軒 鰻魚飯三吃</a>
+            <a href="restaurants.html#yabaton">矢場味噌豬排</a>
+            <a href="restaurants.html#yamamoto">山本屋总本家</a>
+            <a href="restaurants.html#torikai">鳥开总本家</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">探索景點</div>
+          <div class="footer__links">
+            <a href="spots.html#nagoya-castle">名古屋城</a>
+            <a href="spots.html#atsuta-jingu">熱田神宮</a>
+            <a href="spots.html#oasis21">綠洲21</a>
+            <a href="spots.html#aquarium">名古屋港水族館</a>
+            <a href="spots.html#osu-kannon">大須觀音寺</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 古城新韻・名古屋 <span class="footer__accent">|</span> 名古屋旅遊導覽</span>
+        <span>設計 by 網頁設計工程師</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+
+  <style>
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* ===================== FOOD PREVIEW CARDS ===================== */
+    .food-preview-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .food-preview-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+    }
+
+    .food-preview-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .food-preview-card__image {
+      height: 140px;
+      overflow: hidden;
+    }
+
+    .food-preview-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .food-preview-card:hover .food-preview-card__image img {
+      transform: scale(1.08);
+    }
+
+    .food-preview-card__body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .food-preview-card__tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .food-preview-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .food-preview-card__desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .food-preview-card__link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .food-preview-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .food-preview-card {
+        grid-template-columns: 100px 1fr;
+      }
+      .food-preview-card__image {
+        height: 110px;
+      }
+    }
+  </style>
+</body>
+</html>
